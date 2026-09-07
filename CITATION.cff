@@ -7,7 +7,7 @@ abstract: >-
   integration into the TableLoRA / LLaMA-Factory training pipeline.
 type: software
 license: MIT
-repository-code: "https://github.com/<user>/<repo>"   # TODO: fill in on first push
+repository-code: "https://github.com/NYCU-PAIR-Labs/DeepTable"
 authors:
   - family-names: "Yen"
     given-names: "Jyun-Ying"
