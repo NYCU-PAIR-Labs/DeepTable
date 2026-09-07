@@ -1,0 +1,45 @@
+# SAB only (Table 2, row 2).
+# Launch: SAB_LR_MULTIPLIER=1000 llamafactory-cli train configs/hitab_sab.yaml
+#
+# SAB has only ~1920 scalar parameters (30 layers × 32 heads × 2), far too few to
+# move at the base LoRA learning rate. Appendix G sets the add-on LR multiplier
+# lambda = 1000, shared across all backbones and datasets. It is an ENVIRONMENT
+# VARIABLE, not a YAML key — omitting it runs SAB at 1x and will not reproduce
+# the paper's numbers.
+
+model_name_or_path: deepseek-ai/deepseek-llm-7b-chat
+template: deepseek
+
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 8
+lora_alpha: 16
+lora_dropout: 0.1
+lora_target: k_proj,v_proj
+
+dataset: hitab_tpe_train
+dataset_dir: data
+cutoff_len: 2000
+emb_lora: true
+
+use_sab: true                        # Structural Attention Bias (Section 3.3)
+# SAB_LR_MULTIPLIER=1000 (env)
+
+output_dir: output/hitab_sab_seed0
+overwrite_output_dir: true
+num_train_epochs: 3
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 8
+learning_rate: 5.0e-6
+lr_scheduler_type: cosine
+warmup_steps: 0
+max_grad_norm: 1.0
+bf16: true
+logging_steps: 10
+save_strategy: epoch
+report_to: none
+seed: 0
+
+remove_unused_columns: false
+preprocessing_num_workers: 8

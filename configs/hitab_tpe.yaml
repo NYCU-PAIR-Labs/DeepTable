@@ -1,0 +1,54 @@
+# TPE only (Table 2, row 3).
+# Launch: python -m tpe_impl.bin.run_tpe_training configs/hitab_tpe.yaml
+#
+# TPE must go through run_tpe_training.py: that wrapper installs the collator,
+# processor and Linear_new patches, and registers the callback that writes
+# tpe_modules.safetensors next to the adapter. `llamafactory-cli train` would
+# silently train a plain TableLoRA baseline instead.
+
+model_name_or_path: deepseek-ai/deepseek-llm-7b-chat
+template: deepseek
+
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 8
+lora_alpha: 16
+lora_dropout: 0.1
+lora_target: k_proj,v_proj
+
+dataset: hitab_tpe_train
+dataset_dir: data
+cutoff_len: 2000
+emb_lora: true
+
+### TPE (Section 3.4)
+# Read by tpe_impl/config/tpe_config.py and stripped from the YAML before it
+# reaches LLaMA-Factory's argument parser, so these keys are only valid when
+# launching through run_tpe_training.py.
+use_tpe: true
+path_vocab_path: data/hitab_tpe_path_vocab.json   # combined_path_vocab.json for non-HiTab runs
+path_low_rank_dim: 8                 # must equal lora_rank above
+tpe_lr_multiplier: 1000.0            # Appendix G: lambda = 1000
+pool_mode: mean                      # 'mean' (default) or 'sum'
+# Ablation switches; leave unset for the main results:
+# disable_2d_lora: false             # drop TableLoRA's row/col embeds, keep TPE only
+# tpe_top_only: false                # zero out left_pool, keep the column path only
+
+output_dir: output/hitab_tpe_seed0
+overwrite_output_dir: true
+num_train_epochs: 3
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 8
+learning_rate: 5.0e-6
+lr_scheduler_type: cosine
+warmup_steps: 0
+max_grad_norm: 1.0
+bf16: true
+logging_steps: 10
+save_strategy: epoch
+report_to: none
+seed: 0
+
+remove_unused_columns: false
+preprocessing_num_workers: 8

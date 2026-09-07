@@ -1,0 +1,210 @@
+{
+  "hitab_markdown_train": {
+    "file_name": "hitab_markdown_train.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "hitab_markdown_test": {
+    "file_name": "hitab_markdown_test.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "hitab_special_train": {
+    "file_name": "hitab_special_train.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "hitab_special_test": {
+    "file_name": "hitab_special_test.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "wikitq_special_train": {
+    "file_name": "wikitq_special_train.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "wikitq_special_test": {
+    "file_name": "wikitq_special_test.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "hitab_tpe_train": {
+    "file_name": "hitab_tpe_train.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "hitab_tpe_test": {
+    "file_name": "hitab_tpe_test.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "wikitq_tpe_train": {
+    "file_name": "wikitq_tpe_train.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "wikitq_tpe_test": {
+    "file_name": "wikitq_tpe_test.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "fetaqa_tpe_train": {
+    "file_name": "fetaqa_tpe_train.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "fetaqa_tpe_test": {
+    "file_name": "fetaqa_tpe_test.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "fetaqa_tpe_v2_train": {
+    "file_name": "fetaqa_tpe_v2_train.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "fetaqa_tpe_v2_test": {
+    "file_name": "fetaqa_tpe_v2_test.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "tabfact_tpe_train": {
+    "file_name": "tabfact_tpe_train.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "tabfact_tpe_test": {
+    "file_name": "tabfact_tpe_test.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "wikitq_tpe_v2_train": {
+    "file_name": "wikitq_tpe_v2_train.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "wikitq_tpe_v2_test": {
+    "file_name": "wikitq_tpe_v2_test.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "tabfact_tpe_v2_train": {
+    "file_name": "tabfact_tpe_v2_train.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "tabfact_tpe_v2_test": {
+    "file_name": "tabfact_tpe_v2_test.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "wikitq_train": {
+    "file_name": "wikitq_train.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "wikitq_test": {
+    "file_name": "wikitq_test.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "fetaqa_train": {
+    "file_name": "fetaqa_train.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "fetaqa_test": {
+    "file_name": "fetaqa_test.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "tabfact_train": {
+    "file_name": "tabfact_train.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  },
+  "tabfact_test": {
+    "file_name": "tabfact_test.json",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "prompt",
+      "response": "response"
+    }
+  }
+}

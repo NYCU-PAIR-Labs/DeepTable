@@ -1,0 +1,94 @@
+DeepTable
+Copyright (c) 2026 Jyun-Ying Yen, Cheng-Kuan Lin, Yu-Chee Tseng
+
+This repository combines original work with code vendored from two upstream
+projects. The MIT License in LICENSE covers the original work only; the
+vendored code remains under its own license, reproduced in full below.
+
+================================================================================
+1. Original work — MIT License (see LICENSE)
+================================================================================
+
+  deeptable_paths.py
+  configs/
+  evaluation/
+  tpe_impl/                                       (all of it — Tree Path Encoding)
+  llamafactory_src_overlay/llamafactory/sab/      (Structural Attention Bias)
+  llamafactory_src_overlay/dataset_info.json
+  setup.sh
+
+Plus the SAB/TPE and row_ids/col_ids modifications we made to the vendored
+LLaMA-Factory files listed in section 3; those modifications are ours, but the
+files they live in remain under Apache-2.0 as derivative works.
+
+================================================================================
+2. TableLoRA — Copyright (c) Microsoft Corporation, MIT License
+================================================================================
+
+  table_preprocess.py
+  table_preprocess/
+  llamafactory_src_overlay/llamafactory/table_lora/
+
+From the official TableLoRA release accompanying:
+
+  Xinyi He, Yihao Liu, Mengyu Zhou, Yeye He, Haoyu Dong, Shi Han,
+  Zejian Yuan, Dongmei Zhang. "TableLoRA: Low-rank Adaptation on Table
+  Structure Understanding for Large Language Models." ACL 2025.
+
+  https://github.com/microsoft/TableLoRA
+
+  MIT License
+
+  Copyright (c) Microsoft Corporation.
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+
+Local modifications by the DeepTable authors:
+  - table_preprocess/hitab.py: raw HiTab file locations are resolved through
+    deeptable_paths.py instead of the hard-coded `src/table_preprocess/hitab/`,
+    and are loaded lazily rather than at module import.
+
+================================================================================
+3. LLaMA-Factory — Copyright the LlamaFactory team, Apache License 2.0
+================================================================================
+
+  llamafactory_src_overlay/llamafactory/data/template.py
+  llamafactory_src_overlay/llamafactory/data/processors/supervised.py
+  llamafactory_src_overlay/llamafactory/data/processors/unsupervised.py
+  llamafactory_src_overlay/llamafactory/hparams/data_args.py
+  llamafactory_src_overlay/llamafactory/model/adapter.py
+  llamafactory_src_overlay/llamafactory/train/tuner.py
+
+Vendored from LLaMA-Factory v0.9.1 (https://github.com/hiyouga/LLaMA-Factory),
+licensed under the Apache License, Version 2.0. You may obtain a copy of the
+License at:
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+
+Local modifications by the DeepTable authors (see README section 1 for detail):
+  - data/processors/{supervised,unsupervised}.py: emit per-token row_ids/col_ids.
+  - hparams/data_args.py: add the `use_sab` and `emb_lora` flags.
+  - model/adapter.py: add the TABLE_LORA_ENABLED hook.
+  - train/tuner.py: wire up TableLoRA / SAB installation before training.
+  - data/template.py: unmodified; included as a dependency of the processors.

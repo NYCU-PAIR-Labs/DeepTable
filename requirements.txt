@@ -1,0 +1,30 @@
+# DeepTable — pinned environment
+# Tested on: NVIDIA L40S 48GB, CUDA 12.4, Ubuntu 22.04, Python 3.12
+# All versions are EXACT pins, do not relax without re-running the sanity checks.
+
+# Core ML
+torch==2.5.1
+transformers==4.46.1            # NOTE: LlamaSdpaAttention is at this version's modeling_llama.py
+peft==0.12.0                    # NOTE: TableLoRA monkey-patches assume PEFT 0.12 internals
+accelerate==1.0.1
+datasets==3.1.0
+tokenizers==0.20.3
+safetensors==0.4.2
+trl==0.9.6                      # required by LLaMA Factory v0.9.1
+
+# Tokenizer / model
+sentencepiece==0.1.99
+protobuf==3.20.3
+
+# Data & I/O
+pandas==2.2.1
+numpy==1.26.4
+tabulate==0.10.0                # required by pandas.DataFrame.to_markdown()
+PyYAML==6.0.1
+tqdm==4.66.5
+
+# Evaluation
+sacrebleu==2.4.3                # evaluation/eval_fetaqa_bleu.py (FeTaQA corpus BLEU-4)
+
+# LLaMA-Factory itself is installed in editable mode by setup.sh
+# (we clone hiyouga/LLaMA-Factory at tag v0.9.1 and `pip install -e .`).

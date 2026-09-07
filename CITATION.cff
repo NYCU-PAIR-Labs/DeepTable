@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper below."
+title: "DeepTable: Structural Attention Biases and Tree Path Encoding for Hierarchical Table Understanding"
+abstract: >-
+  Reference implementation of the two modules proposed in the DeepTable paper —
+  Structural Attention Bias (SAB) and Tree Path Encoding (TPE) — and their
+  integration into the TableLoRA / LLaMA-Factory training pipeline.
+type: software
+license: MIT
+repository-code: "https://github.com/<user>/<repo>"   # TODO: fill in on first push
+authors:
+  - family-names: "Yen"
+    given-names: "Jyun-Ying"
+  - family-names: "Lin"
+    given-names: "Cheng-Kuan"
+  - family-names: "Tseng"
+    given-names: "Yu-Chee"
+preferred-citation:
+  type: article
+  title: "DeepTable: Structural Attention Biases and Tree Path Encoding for Hierarchical Table Understanding"
+  year: 2026        # TODO: confirm against the venue / arXiv posting
+  authors:
+    - family-names: "Yen"
+      given-names: "Jyun-Ying"
+    - family-names: "Lin"
+      given-names: "Cheng-Kuan"
+    - family-names: "Tseng"
+      given-names: "Yu-Chee"

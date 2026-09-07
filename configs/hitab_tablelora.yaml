@@ -1,0 +1,40 @@
+# TableLoRA baseline (Table 2, row 1) — neither SAB nor TPE.
+# Launch: llamafactory-cli train configs/hitab_tablelora.yaml
+#
+# Hyperparameters match Appendix G (Table: Training hyperparameters) exactly.
+# Reproduce all four seeds by setting `seed:` to 0, 1, 2, 3 in turn.
+
+model_name_or_path: deepseek-ai/deepseek-llm-7b-chat
+template: deepseek
+
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 8
+lora_alpha: 16
+lora_dropout: 0.1
+lora_target: k_proj,v_proj          # Appendix G: "key and value projections"
+
+dataset: hitab_tpe_train             # all four rows share this dataset; the extra
+                                     # metadata column is ignored unless use_tpe=true
+dataset_dir: data
+cutoff_len: 2000                     # 4000 for TabFact
+emb_lora: true                       # TableLoRA 2D-LoRA + [TAB]/[ROW]/[CELL] encoder
+
+output_dir: output/hitab_tablelora_seed0
+overwrite_output_dir: true
+num_train_epochs: 3
+per_device_train_batch_size: 2       # 2 × 8 = effective batch 16
+gradient_accumulation_steps: 8
+learning_rate: 5.0e-6
+lr_scheduler_type: cosine
+warmup_steps: 0
+max_grad_norm: 1.0
+bf16: true
+logging_steps: 10
+save_strategy: epoch
+report_to: none
+seed: 0
+
+remove_unused_columns: false         # required: keeps row_ids/col_ids on the batch
+preprocessing_num_workers: 8
