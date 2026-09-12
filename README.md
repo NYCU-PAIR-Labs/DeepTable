@@ -5,7 +5,7 @@ Path Encoding for Hierarchical Table Understanding."** It implements the two
 proposed modules — SAB (Section 3.3) and TPE (Section 3.4) — and their
 integration into the TableLoRA / LLaMA-Factory training pipeline (Appendix H).
 
-<!-- TODO before release: add the arXiv / proceedings link. -->
+**Paper:** [arXiv:2609.07707](https://arxiv.org/abs/2609.07707)
 
 ```bash
 bash setup.sh                                  # LLaMA-Factory v0.9.1 + overlay + HiTab

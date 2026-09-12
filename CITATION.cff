@@ -18,7 +18,10 @@ authors:
 preferred-citation:
   type: article
   title: "DeepTable: Structural Attention Biases and Tree Path Encoding for Hierarchical Table Understanding"
-  year: 2026        # TODO: confirm against the venue / arXiv posting
+  year: 2026
+  identifiers:
+    - type: url
+      value: "https://arxiv.org/abs/2609.07707"
   authors:
     - family-names: "Yen"
       given-names: "Jyun-Ying"
